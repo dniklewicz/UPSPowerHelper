@@ -16,6 +16,7 @@ XML="<?xml version=\"1.0\" encoding=\"UTF-8\"?> \
     <array> \
         <string>/usr/bin/python2</string> \
         <string>$BIN</string> \
+        <string>-p</string> \
         <string>$PORT</string>
     </array> \
     <key>StandardErrorPath</key> \
