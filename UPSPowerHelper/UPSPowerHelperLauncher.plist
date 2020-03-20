@@ -7,7 +7,7 @@
     <key>ProgramArguments</key>
     <array>
         <string>/usr/bin/open</string>
-        <string>/Applications/UPS Power Monitor.app/Contents/MacOS/UPSPowerHelper</string>
+        <string>/usr/local/bin/UPSPowerHelper</string>
     </array>
     <key>StandardErrorPath</key>
     <string>/var/log/UPSPowerHelper.error</string>
