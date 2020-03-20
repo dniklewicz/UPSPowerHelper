@@ -46,7 +46,7 @@ output = None
 verbose = False
 for o, a in opts:
     if o == '-p':
-        server_port = a
+        server_port = int(a)
 
 server_address = ('', server_port)
 httpd = HTTPServer(server_address, S)
