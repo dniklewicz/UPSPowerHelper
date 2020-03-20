@@ -4,7 +4,7 @@ PORT=${1:-58879}
 
 echo "Starting power server on port $PORT"
 
-BIN=/usr/local/bin/UPSPowerHelper
+BIN=/usr/local/bin/upspowerhelper.py
 
 XML="<?xml version=\"1.0\" encoding=\"UTF-8\"?> \
 <!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\"> \
@@ -14,7 +14,7 @@ XML="<?xml version=\"1.0\" encoding=\"UTF-8\"?> \
     <string>com.dniklewicz.UPSPowerHelper</string> \
     <key>ProgramArguments</key> \
     <array> \
-        <string>/usr/bin/open</string> \
+        <string>/usr/bin/python2</string> \
         <string>$BIN</string> \
         <string>$PORT</string>
     </array> \
