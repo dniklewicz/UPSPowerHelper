@@ -26,7 +26,9 @@ class S(BaseHTTPRequestHandler):
         if self.path.endswith('/info'):
             self._set_response()
             self.wfile.write('{"version": "1.0"}')
-        elif self.path.endswith('/shutdown'):
+
+    def do_POST(self):
+        if self.path.endswith('/shutdown'):
             self._set_response_json()
             self.wfile.write("OK")
             shutdown()
