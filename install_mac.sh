@@ -31,7 +31,7 @@ XML="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
 </plist>"
 
 LAUNCHITEM="$HOME/Library/LaunchAgents/com.dniklewicz.UPSPowerHelper.plist"
-URL="https://github.com/dniklewicz/UPSPowerHelper/releases/download/1.2/upspowerHelper.py"
+URL="https://github.com/dniklewicz/UPSPowerHelper/releases/download/1.3/upspowerHelper.py"
 
 curl -L "$URL" --output "$FILENAME"
 mv "$FILENAME" "$BINDIR/$FILENAME"
