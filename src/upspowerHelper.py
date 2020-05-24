@@ -1,6 +1,7 @@
 #!/usr/bin/python2
 
-from http.server import BaseHTTPRequestHandler, HTTPServer
+from BaseHTTPServer import BaseHTTPRequestHandler
+import SocketServer
 import json
 import os
 import getopt
@@ -51,7 +52,7 @@ for o, a in opts:
         server_port = int(a)
 
 server_address = ('', server_port)
-httpd = HTTPServer(server_address, S)
+httpd = SocketServer.TCPServer(server_address, S)
 
 # Configure cleanup when terminated
 # def atexit_cleanup():
