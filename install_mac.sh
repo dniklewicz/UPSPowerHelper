@@ -2,8 +2,6 @@
 
 PORT=${1:-58879}
 
-echo "Starting power server on port $PORT"
-
 BINDIR=/usr/local/bin
 FILENAME=upspowerhelper.py
 
@@ -39,3 +37,5 @@ echo $XML > "$LAUNCHITEM"
 launchctl unload -w "$LAUNCHITEM"
 launchctl load -w "$LAUNCHITEM"
 # launchctl start "$LAUNCHITEM"
+
+echo "Starting power server on port $PORT"
