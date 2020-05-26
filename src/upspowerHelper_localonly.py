@@ -26,7 +26,7 @@ class S(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path.endswith('/info'):
             self._set_response()
-            self.wfile.write('{"version": "1.0"}')
+            self.wfile.write('{"version": "1.0", "accessibility": "localOnly"}')
 
     def do_POST(self):
         if self.path.endswith('/shutdown'):
@@ -51,16 +51,7 @@ for o, a in opts:
     if o == '-p':
         server_port = int(a)
 
-server_address = ('', server_port)
+server_address = ('127.0.0.1', server_port)
 httpd = SocketServer.TCPServer(server_address, S)
-
-# Configure cleanup when terminated
-# def atexit_cleanup():
-#     print('Stopping HTTPD...')
-#     httpd.shutdown()
-#     httpd.server_close()
-#     print('Done.')
-
-# atexit.register(atexit_cleanup)
 
 httpd.serve_forever()
