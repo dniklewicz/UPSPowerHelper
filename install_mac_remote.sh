@@ -29,7 +29,7 @@ XML="<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 </plist>"
 
 LAUNCHITEM="$HOME/Library/LaunchAgents/com.dniklewicz.UPSPowerHelper.plist"
-URL="https://github.com/dniklewicz/UPSPowerHelper/releases/download/latest/upspowerHelper_remote.py"
+URL="https://raw.githubusercontent.com/dniklewicz/UPSPowerHelper/master/src/upspowerHelper_remote.py"
 
 curl -L "$URL" --output "$FILENAME"
 mv "$FILENAME" "$BINDIR/$FILENAME"
