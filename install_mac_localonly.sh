@@ -5,9 +5,7 @@ PORT=${1:-58879}
 BINDIR=$HOME/.upspowerhelper
 FILENAME=upspowerhelper.py
 
-if [ ! -d "$BINDIR" ] then;
-    mkdir -p "$BINDIR"
-fi
+[ ! -d "$BINDIR" ] && mkdir -p "$BINDIR"
 
 XML="<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 <!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
