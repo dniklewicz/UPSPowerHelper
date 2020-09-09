@@ -7,6 +7,10 @@ LAUNCHITEM="/etc/init.d/ups-power-helper"
 
 echo "Stopping power server."
 
+$LAUNCHITEM stop
+
+update-rc.d -f ups-power-helper remove
+
 rm "$BINDIR/$FILENAME"
 rm "$LAUNCHITEM"
 

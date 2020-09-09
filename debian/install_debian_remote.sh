@@ -16,6 +16,8 @@ mv "$FILENAME" "$BINDIR/$FILENAME"
 curl -L "https://raw.githubusercontent.com/dniklewicz/UPSPowerHelper/master/debian/ups-power-helper" --output "$LAUNCHITEM"
 chmod +x "$LAUNCHITEM"
 
+update-rc.d ups-power-helper defaults
+
 "$LAUNCHITEM" start
 
 echo "Started power server on port $PORT"
