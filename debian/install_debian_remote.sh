@@ -19,6 +19,3 @@ chmod +x "$LAUNCHITEM"
 
 echo "Installed power server on port $PORT"
 echo "Please reboot your system."
-
-
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/dniklewicz/UPSPowerHelper/master/debian/install_debian_remote.sh)"
