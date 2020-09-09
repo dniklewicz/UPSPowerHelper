@@ -1,6 +1,6 @@
 #!/bin/sh
 
-BINDIR=/usr/local/bin
+BINDIR=$HOME/.upspowerhelper
 FILENAME=upspowerhelper.py
 
 LAUNCHITEM="$HOME/Library/LaunchAgents/com.dniklewicz.UPSPowerHelper.plist"
