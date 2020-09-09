@@ -5,12 +5,11 @@ import SocketServer
 import json
 import os
 import getopt
-import subprocess
 import sys
 import atexit
 
 def shutdown():
-    subprocess.call(['systemctl poweroff'])
+    os.system('systemctl poweroff')
 
 class S(BaseHTTPRequestHandler):
     def _set_response(self):

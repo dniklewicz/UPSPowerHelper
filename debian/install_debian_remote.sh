@@ -7,15 +7,15 @@ FILENAME=upspowerhelper.py
 
 mkdir -p "$BINDIR"
 
-LAUNCH_SCRIPT="python \"$BINDIR/$FILENAME\" -p $PORT"
-
 LAUNCHITEM="/etc/init.d/ups-power-helper"
 URL="https://raw.githubusercontent.com/dniklewicz/UPSPowerHelper/master/debian/src/upspowerHelper_debian_remote.py"
 
 curl -L "$URL" --output "$FILENAME"
 mv "$FILENAME" "$BINDIR/$FILENAME"
-echo $LAUNCH_SCRIPT > "$LAUNCHITEM"
+
+curl -L "https://raw.githubusercontent.com/dniklewicz/UPSPowerHelper/master/debian/ups-power-helper" --output "$LAUNCHITEM"
 chmod +x "$LAUNCHITEM"
 
-echo "Installed power server on port $PORT"
-echo "Please reboot your system."
+"$LAUNCHITEM" start
+
+echo "Started power server on port $PORT"
