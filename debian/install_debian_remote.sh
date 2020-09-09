@@ -7,7 +7,7 @@ FILENAME=upspowerhelper.py
 
 mkdir -p "$BINDIR"
 
-LAUNCH_SCRIPT="python3 \"$BINDIR/$FILENAME\" -p $PORT
+LAUNCH_SCRIPT="python \"$BINDIR/$FILENAME\" -p $PORT
 exit 0"
 
 LAUNCHITEM="/etc/init.d/ups-power-helper"
