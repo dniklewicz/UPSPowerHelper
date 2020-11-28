@@ -33,6 +33,17 @@ XML="<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 LAUNCHITEM="$HOME/Library/LaunchAgents/com.dniklewicz.UPSPowerHelper.plist"
 URL="https://raw.githubusercontent.com/dniklewicz/UPSPowerHelper/master/src/upspowerHelper_localonly.py"
 
+# Creating ~/Library/LaunchAgents if needed
+LIB_LAUNCH_AGENTS="$HOME/Library/LaunchAgents/"
+
+if [ ! -d "$LIB_LAUNCH_AGENTS" ]
+then
+  echo "Creating directory $LIB_LAUNCH_AGENTS"
+  mkdir -p "$LIB_LAUNCH_AGENTS"
+else
+  echo "Directory $LIB_LAUNCH_AGENTS already exists"
+fi
+
 curl -L "$URL" --output "$FILENAME"
 mv "$FILENAME" "$BINDIR/$FILENAME"
 echo $XML > "$LAUNCHITEM"
