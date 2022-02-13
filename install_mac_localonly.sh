@@ -15,7 +15,7 @@ XML="<?xml version=\"1.0\" encoding=\"UTF-8\"?>
     <string>com.dniklewicz.UPSPowerHelper</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/usr/bin/python3</string>
+        <string>/usr/bin/python</string>
         <string>$BINDIR/$FILENAME</string>
         <string>-p $PORT</string>
     </array>
