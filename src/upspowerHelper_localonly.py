@@ -1,13 +1,9 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
 
-from BaseHTTPServer import BaseHTTPRequestHandler
-import SocketServer
-import json
-import os
+from http.server import BaseHTTPRequestHandler, HTTPServer
 import getopt
 import subprocess
 import sys
-import atexit
 
 def shutdown():
     subprocess.call(['osascript', '-e', 'tell application "Finder" to shut down'])
@@ -26,7 +22,7 @@ class S(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path.endswith('/info'):
             self._set_response()
-            self.wfile.write('{"version": "1.0", "accessibility": "localOnly"}')
+            self.wfile.write('{"version": "2.0", "accessibility": "localOnly"}')
 
     def do_POST(self):
         if self.path.endswith('/shutdown'):
@@ -52,6 +48,6 @@ for o, a in opts:
         server_port = int(a)
 
 server_address = ('127.0.0.1', server_port)
-httpd = SocketServer.TCPServer(server_address, S)
+httpd = HTTPServer(server_address, S)
 
 httpd.serve_forever()
