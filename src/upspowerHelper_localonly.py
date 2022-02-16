@@ -22,16 +22,16 @@ class S(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path.endswith('/info'):
             self._set_response()
-            self.wfile.write('{"version": "2.0", "accessibility": "localOnly"}')
+            self.wfile.write(b'{"version": "2.1", "accessibility": "localOnly"}')
 
     def do_POST(self):
         if self.path.endswith('/shutdown'):
             self._set_response_json()
-            self.wfile.write("OK")
+            self.wfile.write(b"OK")
             shutdown()
         elif self.path.endswith('/stop'):
             self._set_response_json()
-            self.wfile.write("OK")
+            self.wfile.write(b"OK")
             exit()
 
 server_port = 58879
