@@ -22,7 +22,7 @@ class S(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path.endswith('/info'):
             self._set_response()
-            self.wfile.write(b'{"version": "2.1", "accessibility": "localOnly"}')
+            self.wfile.write(b'{"version": "2.2", "accessibility": "localOnly"}')
 
     def do_POST(self):
         if self.path.endswith('/shutdown'):
