@@ -46,6 +46,7 @@ fi
 
 curl -L "$URL" --output "$FILENAME"
 mv "$FILENAME" "$BINDIR/$FILENAME"
+chmod +x "$BINDIR/$FILENAME"
 echo $XML > "$LAUNCHITEM"
 if (( `launchctl list | grep com.dniklewicz.UPSPowerHelper | wc -l` > 0 ))
 then
