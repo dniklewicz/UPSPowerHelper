@@ -1,5 +1,11 @@
 #!/bin/sh
 
+## Prevent the execution of the script if the user has root privileges
+if [[ $EUID -eq 0 ]]; then
+  echo "This script must NOT be run as root or sudo" 1>&2
+  exit 1
+fi
+
 PORT=${1:-58879}
 
 BINDIR=$HOME/.upspowerhelper
@@ -20,9 +26,9 @@ XML="<?xml version=\"1.0\" encoding=\"UTF-8\"?>
         <string>-p $PORT</string>
     </array>
     <key>StandardErrorPath</key>
-    <string>$HOME/Library/Logs/UPSPowerHelper.log</string>
+    <string>$HOME/Library/Logs/UPSPowerHelper-Error.log</string>
     <key>StandardOutPath</key>
-    <string>$HOME/Library/Logs/UPSPowerHelper.log</string>
+    <string>$HOME/Library/Logs/UPSPowerHelper-Output.log</string>
     <key>RunAtLoad</key>
     <true/>
     <key>KeepAlive</key>
