@@ -15,7 +15,7 @@ XML="<?xml version=\"1.0\" encoding=\"UTF-8\"?>
     <string>com.dniklewicz.UPSPowerHelper</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/usr/bin/python3</string>
+        <string>python3</string>
         <string>$BINDIR/$FILENAME</string>
         <string>-p $PORT</string>
     </array>
@@ -47,7 +47,11 @@ fi
 curl -L "$URL" --output "$FILENAME"
 mv "$FILENAME" "$BINDIR/$FILENAME"
 echo $XML > "$LAUNCHITEM"
-launchctl unload -w "$LAUNCHITEM"
+if (( `launchctl list | grep com.dniklewicz.UPSPowerHelper | wc -l` > 0 ))
+then
+  echo "Unloading previous instance of Power Server."
+  launchctl unload -w "$LAUNCHITEM"
+fi
 launchctl load -w "$LAUNCHITEM"
 # launchctl start "$LAUNCHITEM"
 

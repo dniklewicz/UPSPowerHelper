@@ -1,13 +1,9 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
 
-from BaseHTTPServer import BaseHTTPRequestHandler
-import SocketServer
-import json
-import os
+from http.server import BaseHTTPRequestHandler, HTTPServer
 import getopt
 import subprocess
 import sys
-import atexit
 
 def shutdown():
     subprocess.call(['osascript', '-e', 'tell application "Finder" to shut down'])
@@ -26,16 +22,16 @@ class S(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path.endswith('/info'):
             self._set_response()
-            self.wfile.write('{"version": "1.0", "accessibility": "remote"}')
+            self.wfile.write(b'{"version": "2.2", "accessibility": "remote"}')
 
     def do_POST(self):
         if self.path.endswith('/shutdown'):
             self._set_response_json()
-            self.wfile.write("OK")
+            self.wfile.write(b"OK")
             shutdown()
         elif self.path.endswith('/stop'):
             self._set_response_json()
-            self.wfile.write("OK")
+            self.wfile.write(b"OK")
             exit()
 
 server_port = 58879
@@ -51,16 +47,7 @@ for o, a in opts:
     if o == '-p':
         server_port = int(a)
 
-server_address = ('', server_port)
-httpd = SocketServer.TCPServer(server_address, S)
-
-# Configure cleanup when terminated
-# def atexit_cleanup():
-#     print('Stopping HTTPD...')
-#     httpd.shutdown()
-#     httpd.server_close()
-#     print('Done.')
-
-# atexit.register(atexit_cleanup)
+server_address = ('0.0.0.0', server_port)
+httpd = HTTPServer(server_address, S)
 
 httpd.serve_forever()
